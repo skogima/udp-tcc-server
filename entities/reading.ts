@@ -3,10 +3,9 @@ export interface IReading {
     f1: number;
     f2: number;
     f3: number;
-    ap: number;
-    rp: number;
-    app: number;
-    pf: number;
+    pa: number;
+    pap: number;
+    fp: number;
     c: number;
     dt: string;
 }

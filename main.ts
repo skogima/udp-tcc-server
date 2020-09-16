@@ -2,7 +2,6 @@ import dgram from 'dgram';
 import { convertBufferToObject } from './utils/parser'; 
 import { IReading } from './entities/reading';
 import { Equipment } from './model/equipment';
-import { read } from 'fs';
 
 const server = dgram.createSocket('udp4');
 
