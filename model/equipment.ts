@@ -17,6 +17,7 @@ export class Equipment {
             current: reading.c,
             reactivePower,
             phaseOne: reading.f1,
+            battery: reading.b,
             phaseTwo: reading.f2,
             phaseThree: reading.f3,
             datetime: formatDate.format('YYYY-MM-DD HH:mm:ss'),

@@ -8,4 +8,5 @@ export interface IReading {
     fp: number;
     c: number;
     dt: string;
+    b: number;
 }
