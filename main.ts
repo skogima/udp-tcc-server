@@ -28,10 +28,10 @@ server.on('message', (data, remote) => {
 
     Equipment.createFromReading(reading).then((resp) => {
         if (resp) {
-            console.log('data created');
+            console.log('OK => data created');
         }
         else {
-            console.log('error');
+            console.log('ERROR PARSING DATA');
         }
     });
 });

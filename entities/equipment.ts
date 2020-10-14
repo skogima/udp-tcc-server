@@ -3,8 +3,6 @@ export interface IEquipment {
     datetime: string;
     battery: number;
     phaseOne: number;
-    phaseTwo: number;
-    phaseThree: number;
     current: number;
     activePower: number;
     reactivePower: number;

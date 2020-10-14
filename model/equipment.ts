@@ -9,17 +9,15 @@ const database = firebase.database();
 export class Equipment {
     static async createFromReading(reading: IReading) {
         const formatDate = moment(reading.dt, 'YY-MM-DD-HH-mm-ss');
-        const reactivePower = calculateReactivePower(reading.pap, reading.fp);
+        const reactivePower = calculateReactivePower(reading.pa, reading.pr);
 
         const equipment : IEquipment = {
-            activePower: reading.pa,
-            apparentPower: reading.pap,
+            activePower: reading.pr,
+            apparentPower: reading.pa,
             current: reading.c,
             reactivePower,
             phaseOne: reading.f1,
-            battery: reading.b,
-            phaseTwo: reading.f2,
-            phaseThree: reading.f3,
+            battery: 1.0,
             datetime: formatDate.format('YYYY-MM-DD HH:mm:ss'),
             id: reading.id,
             powerFactor: reading.fp
