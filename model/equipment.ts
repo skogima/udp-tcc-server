@@ -8,7 +8,16 @@ const database = firebase.database();
 
 export class Equipment {
     static async createFromReading(reading: IReading) {
-        const formatDate = moment(reading.dt, 'YY-MM-DD-HH-mm-ss');
+        let formatDate = moment(reading.dt, 'YY-MM-DD-HH-mm-ss');
+
+        if (formatDate.format('YYYY-MM-DD') == 'Invalid date' ||
+            Number.isNaN(formatDate.year())  || 
+            Number.isNaN(formatDate.month()) ||
+            Number.isNaN(formatDate.date())
+        ) {
+            formatDate = moment();
+        }
+
         const reactivePower = calculateReactivePower(reading.pa, reading.pr);
 
         const equipment : IEquipment = {
