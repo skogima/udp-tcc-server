@@ -2,7 +2,6 @@ import dgram from 'dgram';
 import { convertBufferToObject } from './utils/parser'; 
 import { IReading } from './entities/reading';
 import { Equipment } from './model/equipment';
-import moment from 'moment';
 
 const server = dgram.createSocket('udp4');
 
@@ -29,10 +28,10 @@ server.on('message', (data, remote) => {
 
     Equipment.createFromReading(reading).then((resp) => {
         if (resp) {
-            console.log(`${moment().format('DD/MM/YYYY HH:mm:ss')} => OK (created)`);
+            console.log(`${reading.dt} => OK (created)`);
         }
         else {
-            console.log(`${moment().format('DD/MM/YYYY HH:mm:ss')} => ERROR PARSING DATA`);
+            console.log(`ERROR PARSING DATA`);
         }
     });
 });
